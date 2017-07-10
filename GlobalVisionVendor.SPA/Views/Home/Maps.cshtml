@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "Maps";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/bundles/modernizr")
+@Scripts.Render("~/Scripts/index")
+@Styles.Render("~/Content/index")
+
+<style type="text/css">
+    .infoBox { background-color: #FFF; width: 300px; font-family: Arial, Helvetica, sans-serif; font-size: 14px; border: 2px solid #3fa7d8; border-radius: 3px; margin-top: 10px }
+    .infoBox p { padding: 0 15px }
+    .infoBox:before { border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 10px solid #3fa7d8; top: -10px; content: ""; height: 0; position: absolute; width: 0; left: 138px }
+ </style>
+
+<script src="~/js/markerclusterer.js"></script>
+
+<div ng-controller="MapsApi"></div>
+
+<div id="mapa" style="height: 800px; width: 100% ;margin-top: -49px;">
+</div>
+
+<!-- Maps API Javascript -->
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyD_A7qfA68qedllHJ19V29EV1yvyJ_CU2U&amp;sensor=false"></script>
+
+<!-- Arquivo de inicialização do mapa -->
+<script type="text/javascript">
+        var map;
+
+        function initialize()
+        {
+            var latlng = new google.maps.LatLng(-18.8800397, -47.05878999999999);
+
+            var options = {
+                zoom: 5,
+                center: latlng,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+
+            map = new google.maps.Map(document.getElementById("mapa"), options);
+            
+            //var location = new google.maps.LatLng(latitude, longitude);
+            //marker.setPosition(location);
+            //map.setCenter(location);
+            map.setZoom(16);
+        }
+
+        initialize();
+</script>
+
+<script src="~/Api/jsapi/MapsApi.js"></script>

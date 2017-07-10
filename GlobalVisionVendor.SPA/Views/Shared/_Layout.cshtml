@@ -1,0 +1,316 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <link href="~/Content/ImagensIcons.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/complemento.css" rel="stylesheet" />
+
+    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>*@
+
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/ui-grid.js"></script>
+
+</head>
+
+<style type="text/css">
+
+
+    .container-icon{
+        position: relative;
+display: table-cell;
+width: 60px;
+height: 36px;
+text-align: center;
+vertical-align: middle;
+font-size:20px;
+    }
+ 
+.fa-2x {
+font-size: 2em;
+}
+.fa {
+position: relative;
+display: table-cell;
+width: 60px;
+height: 36px;
+text-align: center;
+vertical-align: middle;
+font-size:20px;
+}
+
+
+.main-menu:hover,nav.main-menu.expanded {
+width:250px;
+overflow:visible;
+}
+
+.main-menu {
+background:mediumblue;
+border-right:1px solid #e5e5e5;
+position:absolute;
+top:0;
+bottom:0;
+height:100%;
+left:0;
+width:60px;
+overflow:hidden;
+-webkit-transition:width .05s linear;
+transition:width .05s linear;
+-webkit-transform:translateZ(0) scale(1,1);
+z-index:1000;
+}
+
+.main-menu>ul {
+margin:7px 0;
+}
+
+.main-menu li {
+position:relative;
+display:block;
+width:250px;
+}
+
+.main-menu li>a {
+position:relative;
+display:table;
+border-collapse:collapse;
+border-spacing:0;
+color:#999;
+ font-family: arial;
+font-size: 14px;
+text-decoration:none;
+-webkit-transform:translateZ(0) scale(1,1);
+-webkit-transition:all .1s linear;
+transition:all .1s linear;
+  
+}
+
+.main-menu .nav-icon {
+position:relative;
+display:table-cell;
+width:60px;
+height:36px;
+text-align:center;
+vertical-align:middle;
+font-size:18px;
+}
+
+.main-menu .nav-text 
+{
+position:relative;
+display:table-cell;
+vertical-align:middle;
+width:190px;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.main-menu>ul.logout {
+position:absolute;
+left:0;
+bottom:0;
+}
+
+.no-touch .scrollable.hover {
+overflow-y:hidden;
+}
+
+.no-touch .scrollable.hover:hover {
+overflow-y:auto;
+overflow:visible;
+}
+
+a:hover,a:focus {
+text-decoration:none;
+}
+
+nav {
+-webkit-user-select:none;
+-moz-user-select:none;
+-ms-user-select:none;
+-o-user-select:none;
+user-select:none;
+}
+
+nav ul,nav li {
+outline:0;
+margin:0;
+padding:0;
+}
+.main-menu li:hover>a,nav.main-menu li.active>a,.dropdown-menu>li>a:hover,.dropdown-menu>li>a:focus,.dropdown-menu>.active>a,.dropdown-menu>.active>a:hover,.dropdown-menu>.active>a:focus,.no-touch .dashboard-page nav.dashboard-menu ul li:hover a,.dashboard-page nav.dashboard-menu ul li.active a {
+color:#fff;
+background-color:#5fa2db;
+}
+.area {
+float: left;
+background: #e2e2e2;
+width: 100%;
+height: 100%;
+}
+    
+
+</style>
+
+<body ng-app="app">
+
+    <div class="container" >
+
+        <div class="col">
+            <div>
+                @RenderBody()
+            </div>
+        </div>
+
+        <nav class="main-menu col">
+            <ul>
+                <li>
+                    <a href="/Home/Index">
+                        <i class="container-icon glyphicon glyphicon-home">
+                        </i>
+                        <span class="nav-text">
+                            Home
+                        </span>
+                    </a>
+
+                </li>
+                <li>
+                    <a href="/Home/Login">
+                        <i class="container-icon glyphicon glyphicon-user">
+
+                        </i>
+                        <span class="nav-text">
+                            Login/Account create
+                        </span>
+                    </a>
+
+                </li>
+                <li>
+                    <a href="/Home/Maps">
+                        <i class="container-icon glyphicon glyphicon-globe">
+
+                        </i>
+                        <span class="nav-text">
+                            Global Vision
+                        </span>
+                    </a>
+
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="container-icon  glyphicon glyphicon-search"></i>
+                        <span class="nav-text">
+                            Search
+                        </span>
+                    </a>
+
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="container-icon  glyphicon glyphicon-tasks"></i>
+                        <span class="nav-text">
+                            Graphs and Statistics
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="container-icon  glyphicon glyphicon-calendar"></i>
+                        <span class="nav-text">
+                            Calendar
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Home/Registers">
+                        <i class="container-icon  glyphicon glyphicon-plus"></i>
+                        <span class="nav-text">
+                            Registers
+                        </span>
+
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="container-icon  glyphicon glyphicon-book"></i>
+                        <span class="nav-text">
+                            Documents
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Home/DashBoard">
+                        <i class="container-icon  glyphicon glyphicon-expand"></i>
+                        <span class="nav-text">
+                            Dashboard de Saidas
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="container-icon  glyphicon glyphicon-list"></i>
+                        <span class="nav-text">
+                            Produtos
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="container-icon  glyphicon glyphicon-phone"></i>
+                        <span class="nav-text">
+                            Contacts
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="container-icon  glyphicon glyphicon-wrench"></i>
+                        <span class="nav-text">
+                            Manutencao
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="container-icon  glyphicon glyphicon-folder-open"></i>
+                        <span class="nav-text">
+                            Arquivos
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="container-icon  glyphicon glyphicon-cog"></i>
+                        <span class="nav-text">
+                            Configurations
+                        </span>
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="logout">
+                <li>
+                    <a href="#">
+                        <i class="container-icon glyphicon glyphicon-log-out"></i>
+                        <span class="nav-text">
+                            Logout
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+    </div>
+    
+ 
+</body>
+
+</html>

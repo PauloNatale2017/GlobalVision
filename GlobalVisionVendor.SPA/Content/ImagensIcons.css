@@ -1,0 +1,10 @@
+﻿body {
+}
+
+
+.icon-map
+{
+   background:url(../images/icons/icon-map.png);     
+   background-repeat: no-repeat;
+   background-size: 100%;
+}
